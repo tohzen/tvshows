@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        </style>
+    <title>Read (all)</title>
+</head>
+<body>
+
+    <p>HEWWO WORWD UWU</p>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Network</th>
+            <th>Release Date</th>
+            <th>Actions</th>
+        </tr>
+        {% for Show in allshows %}
+        <tr>
+            <td>{{Show.id}}</td>
+            <td>{{Show.title}}</td>
+            <td>{{Show.network}}</td>
+            <td>{{Show.release}}</td>
+            <td><a href="/shows/view/{{Show.id}}"> Show </a> | <a href="/edit/{{Show.id}}"> Edit</a> <a href="/delete/{{Show.id}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+
+
+    </table>
+    <a href="/shows/new">Add a New Show</a>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Info</title>
+</head>
+    <h1>Edit information about {{edit.title}}</h1>
+    {% if messages %}
+<ul class="messages">    
+    {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+    <form action="/update/{{edit.id}}" method="post">
+        {% csrf_token %}
+        <p>Title: <input type="text" name="title" id="" value= "{{edit.title}}" ></p>
+        <p>Network: <input type="text" name="network" id="" value= "{{edit.network}}" ></p>
+        <p>Release Date: <input type="date" name="release" id="" value= "{{edit.release_date}}" ></p>
+        <p><input type="submit" value="Update" id=""></p>
+    </form>
+
+    <a href="/">Go Back</a>
+
+    <a href="">Go to Show</a>
+    
+</body>
+</html>
